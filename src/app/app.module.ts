@@ -12,6 +12,8 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 registerLocaleData(zh);
 
@@ -26,6 +28,9 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
 
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
