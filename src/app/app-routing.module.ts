@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'welcome',
-    component: WelcomeComponent
+    path: '',
+    loadChildren: () => import('./modules/welcome/welcome.module').then(m => m.WelcomeModule)
   },
   {
     path: 'home',
@@ -15,11 +15,6 @@ const routes: Routes = [
   {
     path: 'threejs-training',
     loadChildren: () => import('./modules/threejs-training/threejs-training.module').then(m => m.ThreejsTrainingModule)
-  },
-  {
-    path: '',
-    redirectTo: '/welcome',
-    pathMatch: 'full'
   },
   {
     path: '**',
