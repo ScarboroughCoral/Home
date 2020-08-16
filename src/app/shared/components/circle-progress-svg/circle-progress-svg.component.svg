@@ -1,0 +1,6 @@
+<svg class="svg-container" [style.width.px]="2*radius" [style.height.px]="2*radius">
+  <polyline #outerCircle style="fill:none" [style.stroke]="outerColor" [style.stroke-width]="outerWidth" />
+  <circle [style.cx]="center.x" [style.cy]="center.y" [style.r]="innerRadius" [style.fill]="innerColor" />
+  <text text-anchor="middle" [attr.x]="center.x" [attr.y]="center.y"
+    [style.fill]="textColor">{{(progress*100).toFixed(0)}}%</text>
+</svg>
